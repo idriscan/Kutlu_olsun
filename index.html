@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7e8f8">
+<meta name="description" content="Nisa için hazırlanmış küçük bir doğum günü sürprizi.">
+<title>Nisa'ya Özel Doğum Günü Sürprizi</title>
+<style>
+:root{
+  color-scheme:light;
+  --ink:#4b355d; --muted:#78658b; --pink:#ffd8e9; --lilac:#e7d9ff;
+  --glass:rgba(255,255,255,.43); --line:rgba(255,255,255,.72);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,sans-serif;color:var(--ink)}
+body{min-height:100svh;overflow-x:hidden;background:linear-gradient(135deg,#fff0f6 0%,#f1e9ff 48%,#e4f4ff 100%)}
+button{font:inherit}
+.scene{
+  position:relative;isolation:isolate;min-height:100svh;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;padding:24px 16px calc(30px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(ellipse at 16% 20%,rgba(255,180,218,.66),transparent 38%),
+    radial-gradient(ellipse at 86% 28%,rgba(194,170,255,.6),transparent 42%),
+    radial-gradient(ellipse at 48% 100%,rgba(255,255,255,.9),transparent 48%);
+}
+.scene:before,.scene:after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(35px);opacity:.58;pointer-events:none}
+.scene:before{width:240px;height:240px;background:#ffcae4;top:-70px;left:-70px;animation:drift 13s ease-in-out infinite alternate}
+.scene:after{width:300px;height:300px;background:#cdbbff;right:-110px;bottom:-80px;animation:drift 16s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate(28px,22px) scale(1.12)}}
+.glints{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+.glint{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 10px 3px rgba(255,255,255,.8);animation:twinkle var(--dur,4s) ease-in-out infinite alternate;left:var(--x);top:var(--y);opacity:var(--op,.7)}
+@keyframes twinkle{to{opacity:.15;transform:scale(.45) translateY(-12px)}}
+.panel{
+ width:min(100%,560px);position:relative;text-align:center;padding:clamp(24px,6vw,42px) clamp(18px,5vw,36px);
+ border:1px solid var(--line);border-radius:32px;
+ background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(255,255,255,.28));
+ box-shadow:0 24px 70px rgba(113,81,148,.14),inset 0 1px 0 rgba(255,255,255,.8);
+ backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#9a7ba9;font-weight:800}
+.lock-mark{width:64px;height:64px;margin:17px auto 14px;display:grid;place-items:center;border-radius:22px;background:rgba(255,255,255,.6);border:1px solid white;box-shadow:0 8px 25px #bca1d52b}
+.lock-mark svg{width:32px;height:32px;stroke:#9b78bd;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+h1{font-size:clamp(1.8rem,7vw,3rem);line-height:1.08;letter-spacing:-.045em;margin:0;color:#624574}
+.intro{max-width:360px;margin:16px auto 25px;color:var(--muted);font-size:clamp(.94rem,3.8vw,1.04rem);line-height:1.65}
+.countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 auto 18px;max-width:410px}
+.timebox{padding:12px 4px 10px;border:1px solid rgba(255,255,255,.8);border-radius:17px;background:rgba(255,255,255,.48);box-shadow:inset 0 1px 0 #ffffffb3}
+.number{display:block;font-size:clamp(1.5rem,7vw,2.35rem);font-variant-numeric:tabular-nums;font-weight:800;letter-spacing:-.06em;color:#72518c;line-height:1.1}
+.unit{display:block;margin-top:6px;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#9c84ad;font-weight:800}
+.hint{font-size:.76rem;color:#a38bb1;margin:0}
+.silhouettes{position:relative;display:flex;justify-content:center;align-items:flex-end;gap:clamp(14px,5vw,28px);height:100px;margin:25px auto 0;filter:blur(1.2px);opacity:.72;transition:filter 1.2s ease,opacity 1.2s ease}
+.silhouette{position:relative;flex:none;filter:drop-shadow(0 8px 12px #9e7db422)}
+.gift{width:57px;height:48px;border:2px solid #b69bca;border-radius:5px;background:#d8c8e9aa}
+.gift:before{content:"";position:absolute;left:23px;top:-2px;width:8px;height:48px;background:#c4abd9aa}
+.gift:after{content:"";position:absolute;left:17px;top:-13px;width:18px;height:12px;border:2px solid #b69bca;border-radius:12px 12px 2px 12px;transform:rotate(-12deg)}
+.envelope{width:61px;height:42px;border:2px solid #b69bca;border-radius:5px;background:#e7d8f0aa}
+.envelope:before,.envelope:after{content:"";position:absolute;top:5px;width:38px;height:2px;background:#b69bca}
+.envelope:before{left:0;transform:rotate(34deg);transform-origin:left}
+.envelope:after{right:0;transform:rotate(-34deg);transform-origin:right}
+.cake-mini{width:61px;height:35px;border:2px solid #b69bca;border-radius:8px 8px 5px 5px;background:#e4cbeaaa}
+.cake-mini:before{content:"";position:absolute;left:-3px;right:-3px;top:-8px;height:13px;border-radius:50%;border:2px solid #b69bca;background:#f5e6f5aa}
+.cake-mini:after{content:"";position:absolute;left:28px;top:-24px;width:3px;height:17px;background:#b69bca;border-radius:3px}
+.unlock-flash{position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0;background:radial-gradient(circle,#fff 0%,#fff9 22%,transparent 70%)}
+.unlocking .unlock-flash{animation:flash 1.4s ease-out}
+@keyframes flash{0%{opacity:0}25%{opacity:.95}100%{opacity:0}}
+.unlocking .lock-mark{animation:unlock-pop .8s ease forwards}
+@keyframes unlock-pop{45%{transform:rotate(-10deg) scale(1.13)}100%{transform:translateY(-10px) scale(.2);opacity:0}}
+.unlocking .silhouettes{filter:blur(8px);opacity:0;transform:translateY(16px)}
+.hidden{display:none!important}
+.birthday{width:min(100%,600px);text-align:center;position:relative;padding:18px 0 8px;animation:arrive .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes arrive{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+.birthday h1{font-size:clamp(2.2rem,10vw,4.4rem);color:#774c91;text-shadow:0 5px 24px #e9bdebaa;margin:0 auto 8px}
+.subtitle{margin:10px 0 22px;color:#8e75a1;font-size:clamp(1rem,4vw,1.2rem)}
+.cake-wrap{position:relative;width:min(82vw,330px);height:250px;margin:0 auto 10px;display:flex;align-items:flex-end;justify-content:center}
+.plate{position:absolute;bottom:12px;width:94%;height:28px;border-radius:50%;background:linear-gradient(#fff,#e5d6f0);box-shadow:0 10px 18px #8b6eaa2b;border:1px solid #fff}
+.cake-bottom{position:absolute;bottom:30px;width:82%;height:82px;border-radius:15px 15px 22px 22px;background:linear-gradient(180deg,#f7aeca,#f18dbb);box-shadow:inset 0 -8px 0 #df78a8,0 13px 20px #b97ca633}
+.cake-bottom:before{content:"";position:absolute;left:0;right:0;top:-12px;height:26px;border-radius:50%;background:#ffe5ef;border:2px solid #fff8}
+.cake-top{position:absolute;bottom:99px;width:66%;height:57px;border-radius:13px 13px 17px 17px;background:linear-gradient(180deg,#d8c2ff,#bca2f1);box-shadow:inset 0 -6px 0 #a78add}
+.cake-top:before{content:"";position:absolute;left:0;right:0;top:-9px;height:20px;border-radius:50%;background:#f8edff;border:2px solid #fff9}
+.icing{position:absolute;left:12%;right:12%;top:7px;height:25px;border-radius:0 0 14px 14px;background:radial-gradient(ellipse at 20% 0,#fff 0 10%,transparent 11%),radial-gradient(ellipse at 70% 0,#fff 0 12%,transparent 13%),#f8eaff}
+.berry{position:absolute;top:22px;width:10px;height:10px;border-radius:50%;background:#ff709f;box-shadow:0 0 0 3px #ffabc5}
+.berry.one{left:25%}.berry.two{left:48%;top:15px}.berry.three{right:23%}
+.candle{position:absolute;z-index:2;bottom:151px;width:13px;height:52px;border-radius:4px;background:repeating-linear-gradient(135deg,#fff 0 7px,#c9a9f6 7px 13px);box-shadow:0 3px 8px #7c5c9b22}
+.flame{position:absolute;left:50%;top:-27px;transform:translateX(-50%);width:17px;height:25px;border-radius:55% 45% 55% 45%;background:radial-gradient(ellipse at 50% 70%,#fff8b8 0 25%,#ffb84c 48%,#ff8b8b 72%);box-shadow:0 0 14px 5px #ffcb7b99;transform-origin:50% 90%;animation:flicker .75s ease-in-out infinite alternate}
+@keyframes flicker{from{transform:translateX(-50%) rotate(-5deg) scale(.95)}to{transform:translateX(-50%) rotate(6deg) scale(1.07)}}
+.smoke{position:absolute;left:50%;top:-29px;width:12px;height:24px;border:2px solid #a99bb5;border-color:transparent transparent transparent #a99bb5;border-radius:50%;opacity:0;transform:translateX(-50%)}
+.blown .flame{animation:snuff .45s ease forwards}
+@keyframes snuff{to{opacity:0;transform:translateX(-50%) scale(.05) translateY(10px)}}
+.blown .smoke{animation:smoke 1.7s ease-out forwards}
+@keyframes smoke{0%{opacity:0;transform:translate(-50%,0) scale(.5)}20%{opacity:.65}100%{opacity:0;transform:translate(-20%,-48px) scale(1.8)}}
+.wish{font-size:clamp(1.15rem,5vw,1.45rem);font-weight:800;color:#805c9a;margin:4px 0 18px}
+.action{border:0;min-height:54px;padding:15px 27px;border-radius:999px;color:white;font-weight:800;letter-spacing:.01em;background:linear-gradient(110deg,#d77eae,#a587de);box-shadow:0 10px 25px #aa80c84d;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.action:active{transform:scale(.97);box-shadow:0 4px 12px #aa80c84d}
+.action:focus-visible{outline:3px solid #805c9a;outline-offset:4px}
+.finale{margin:22px auto 0;animation:arrive .7s ease both}
+.finale h2{font-size:clamp(1.7rem,7vw,2.8rem);line-height:1.05;color:#a04d91;text-shadow:0 5px 24px #ffc6e9;margin:0}
+.finale p{color:#8a729d;margin:12px 0 0}
+.confetti-layer{position:fixed;inset:0;z-index:10;overflow:hidden;pointer-events:none}
+.confetti{position:absolute;top:-18px;left:var(--x);width:var(--w);height:var(--h);border-radius:2px;background:var(--c);opacity:.95;animation:fall var(--t) cubic-bezier(.18,.62,.38,1) var(--delay) forwards;will-change:transform,opacity}
+@keyframes fall{0%{transform:translate3d(0,-5vh,0) rotate(0deg);opacity:1}100%{transform:translate3d(var(--drift),110vh,0) rotate(var(--spin));opacity:.1}}
+@media(max-width:360px){.panel{padding:23px 14px;border-radius:25px}.countdown{gap:5px}.timebox{padding:10px 2px}.unit{font-size:.58rem}.silhouettes{gap:13px}.cake-wrap{height:230px}.cake-bottom{height:76px}.cake-top{bottom:93px}.candle{bottom:143px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="scene" id="scene">
+  <div class="glints" id="glints" aria-hidden="true"></div>
+  <div class="unlock-flash" aria-hidden="true"></div>
+  <section class="panel" id="locked" aria-labelledby="lock-title">
+    <div class="eyebrow"></div>
+    <div class="lock-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32"><rect x="6.5" y="14" width="19" height="14" rx="4"></rect><path d="M10 14V9a6 6 0 0 1 12 0v5"></path><circle cx="16" cy="20" r="1.7"></circle><path d="M16 22v2"></path></svg>
+    </div>
+    <h1 id="lock-title">Küçük bir sihir<br>yolda...</h1>
+    <p class="intro">Senin için küçük bir sürpriz hazırladım. Zamanı gelince her şey açılacak.</p>
+    <div class="countdown" role="timer" aria-label="Sürprizin açılmasına kalan süre">
+      <div class="timebox"><span class="number" id="days">00</span><span class="unit">Gün</span></div>
+      <div class="timebox"><span class="number" id="hours">00</span><span class="unit">Saat</span></div>
+      <div class="timebox"><span class="number" id="minutes">00</span><span class="unit">Dakika</span></div>
+      <div class="timebox"><span class="number" id="seconds">00</span><span class="unit">Saniye</span></div>
+    </div>
+    <p class="hint" id="hint">24 Ekim 2026 · 00.00</p>
+    <div class="silhouettes" aria-hidden="true">
+      <div class="silhouette gift"></div><div class="silhouette envelope"></div><div class="silhouette cake-mini"></div>
+    </div>
+  </section>
+
+  <section class="birthday hidden" id="birthday" aria-labelledby="birthday-title">
+    <div class="eyebrow"></div>
+    <h1 id="birthday-title">İYİ Kİ DOĞDUN!<br></h1>
+    <p class="subtitle">Dilediğin tüm güzellikler seni bulsun.</p>
+    <div class="cake-wrap" id="cake" aria-label="Üzerinde yanan mumu olan doğum günü pastası">
+      <div class="plate"></div>
+      <div class="cake-bottom"></div>
+      <div class="cake-top"><div class="icing"></div><i class="berry one"></i><i class="berry two"></i><i class="berry three"></i></div>
+      <div class="candle"><div class="flame" id="flame"></div><div class="smoke"></div></div>
+    </div>
+    <p class="wish" id="wish">Bir dilek tut!</p>
+    <button class="action" id="blow" type="button">Mumu üfle</button>
+    <div class="finale hidden" id="finale" aria-live="polite">
+      <h2>İYİ Kİ DOĞDUN NİSA!</h2>
+      <p>Yeni yaşın kahkaha ve güzelliklerle dolsun. ✨</p>
+    </div>
+  </section>
+</main>
+<div class="confetti-layer" id="confetti" aria-hidden="true"></div>
+<script>
+(() => {
+  'use strict';
+  // 24 Ekim 2026 00.00.00 Europe/Istanbul = 23 Ekim 2026 21:00:00 UTC (UTC+3).
+  const TARGET = Date.UTC(2026, 9, 23, 21, 0, 0);
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const locked = document.getElementById('locked');
+  const birthday = document.getElementById('birthday');
+  const scene = document.getElementById('scene');
+  const hint = document.getElementById('hint');
+  const confettiLayer = document.getElementById('confetti');
+  const blowButton = document.getElementById('blow');
+  let unlocked = false;
+  let blown = false;
+  let countdownInterval = null;
+
+  // Decorative twinkles are static/slow and do not rely on any external library.
+  const glints = document.getElementById('glints');
+  for (let i = 0; i < 22; i++) {
+    const dot = document.createElement('i');
+    dot.className = 'glint';
+    dot.style.setProperty('--x', `${(i * 37 + 11) % 97}%`);
+    dot.style.setProperty('--y', `${(i * 53 + 7) % 96}%`);
+    dot.style.setProperty('--dur', `${3 + (i % 5)}s`);
+    dot.style.setProperty('--op', `${0.25 + (i % 6) * 0.1}`);
+    glints.appendChild(dot);
+  }
+
+  const pad = n => String(Math.max(0, n)).padStart(2, '0');
+  function updateCountdown() {
+    const remaining = Math.max(0, TARGET - Date.now());
+    const totalSeconds = Math.floor(remaining / 1000);
+    document.getElementById('days').textContent = pad(Math.floor(totalSeconds / 86400));
+    document.getElementById('hours').textContent = pad(Math.floor((totalSeconds % 86400) / 3600));
+    document.getElementById('minutes').textContent = pad(Math.floor((totalSeconds % 3600) / 60));
+    document.getElementById('seconds').textContent = pad(totalSeconds % 60);
+    if (remaining <= 0) unlock();
+  }
+
+  function makeConfetti(count) {
+    if (reducedMotion) return;
+    // Remove old particles before creating another burst to keep the page light.
+    confettiLayer.replaceChildren();
+    const colors = ['#ff83b6','#c4a3ff','#ffd66e','#8bded3','#ff9a83','#fff'];
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < count; i++) {
+      const piece = document.createElement('i');
+      piece.className = 'confetti';
+      piece.style.setProperty('--x', `${Math.random() * 100}%`);
+      piece.style.setProperty('--w', `${5 + Math.random() * 6}px`);
+      piece.style.setProperty('--h', `${8 + Math.random() * 9}px`);
+      piece.style.setProperty('--c', colors[Math.floor(Math.random() * colors.length)]);
+      piece.style.setProperty('--t', `${2.4 + Math.random() * 2.4}s`);
+      piece.style.setProperty('--delay', `${Math.random() * 0.45}s`);
+      piece.style.setProperty('--drift', `${Math.round((Math.random() - 0.5) * 220)}px`);
+      piece.style.setProperty('--spin', `${Math.round(360 + Math.random() * 1080)}deg`);
+      frag.appendChild(piece);
+    }
+    confettiLayer.appendChild(frag);
+    window.setTimeout(() => confettiLayer.replaceChildren(), 5500);
+  }
+
+  function unlock() {
+    if (unlocked) return;
+    unlocked = true;
+    if (countdownInterval !== null) window.clearInterval(countdownInterval);
+    document.body.classList.add('unlocked');
+    scene.classList.add('unlocking');
+    hint.textContent = 'Sürpriz zamanı geldi!';
+    makeConfetti(90);
+    window.setTimeout(() => {
+      locked.classList.add('hidden');
+      birthday.classList.remove('hidden');
+      scene.classList.remove('unlocking');
+    }, reducedMotion ? 0 : 1000);
+  }
+
+  blowButton.addEventListener('click', () => {
+    if (!unlocked || blown) return;
+    blown = true;
+    document.getElementById('cake').classList.add('blown');
+    document.getElementById('wish').textContent = 'Dileğin gökyüzüne yükselsin!';
+    blowButton.classList.add('hidden');
+    document.getElementById('finale').classList.remove('hidden');
+    makeConfetti(160);
+  });
+
+  // Recalculate from the absolute target on every tick; this survives refreshes and background tabs.
+  if (Date.now() >= TARGET) {
+    updateCountdown(); // first visit after target also runs the unlock experience
+  } else {
+    updateCountdown();
+    countdownInterval = window.setInterval(updateCountdown, 250);
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && !unlocked) updateCountdown();
+  });
+})();
+</script>
+</body>
+</html>
